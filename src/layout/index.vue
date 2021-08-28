@@ -32,10 +32,10 @@
 </template>
 
 <script>
-import Chart1 from '../components/Chart1.vue'
-import Chart2 from '../components/Chart2.vue'
-import Map1 from '../components/Map1.vue'
-import List1 from '../components/List1.vue'
+import Chart1 from '@components/Chart1.vue'
+import Chart2 from '@components/Chart2.vue'
+import Map1 from '@components/Map1.vue'
+import List1 from '@components/List1.vue'
 
 export default {
   name: 'Layout',

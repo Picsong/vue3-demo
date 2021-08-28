@@ -26,7 +26,7 @@
 <script lang="ts">
 import { defineComponent, CSSProperties } from 'vue'
 
-import AppGrid from '../../layout/components/AppGrid.vue'
+import AppGrid from '@/layout/components/AppGrid.vue'
 
 export default defineComponent({
   name: 'GridPage',
