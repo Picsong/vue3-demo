@@ -3,9 +3,9 @@
 </template>
 
 <script lang="ts" setup>
-import * as echarts from "echarts";
-import gzData from "../assets/cd-map.json";
-import {defineProps, ref, onMounted} from "vue";
+import * as echarts from 'echarts'
+import gzData from '../assets/cd-map.json'
+import { defineProps, ref, onMounted } from 'vue'
 
 const props = defineProps({
   option: {
@@ -17,30 +17,30 @@ const props = defineProps({
       title: {
         text: '成都地图',
         textStyle: {
-          color: "#557FB6",
-          lineHeight: 30
+          color: '#557FB6',
+          lineHeight: 30,
         },
-        x: "center",
+        x: 'center',
       },
       geo: {
         map: '成都',
         label: {},
         roam: true,
-        itemStyle: {}
+        itemStyle: {},
       },
       series: [{
         type: 'effectScatter',
         coordinateSystem: 'geo',
         rippleEffect: {
-          brushType: 'stroke'
+          brushType: 'stroke',
         },
         // symbolSize(val, params) {
         //   return 8;
         // },
         data: [],
-      }]
-    })
-  }
+      }],
+    }),
+  },
 })
 const cdMap = ref<HTMLElement | null>(null)
 const chartInstance = ref<echarts.EChartsType | null>(null)

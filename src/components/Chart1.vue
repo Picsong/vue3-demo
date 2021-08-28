@@ -1,12 +1,11 @@
 <template>
   <div ref="chartRef">
-
   </div>
 </template>
 
 <script lang="ts" setup>
-import {defineProps, onMounted, withDefaults, ref} from "vue";
-import * as echarts from "echarts";
+import { defineProps, onMounted, withDefaults, ref } from 'vue'
+import * as echarts from 'echarts'
 
 interface IProps {
   option: any
@@ -15,22 +14,22 @@ interface IProps {
 const props = withDefaults(defineProps<IProps>(), {
   option: {
     title: {
-      text: " 配送工作监控",
+      text: ' 配送工作监控',
       textStyle: {
         color: '#557FB6',
         lineHeight: 30,
-      }
+      },
     },
     tooltip: {
-      trigger: 'item'
+      trigger: 'item',
     },
     legend: {
       orient: 'horizontal',
       left: 10,
       bottom: 10,
       textStyle: {
-        color: '#eee'
-      }
+        color: '#eee',
+      },
     },
     // backgroundColor: '#11193B',
     color: ['#6854D7', '#272E50'],
@@ -40,18 +39,18 @@ const props = withDefaults(defineProps<IProps>(), {
         type: 'pie',
         radius: ['40%', '70%'],
         label: {
-          color: '#eee'
+          color: '#eee',
         },
         labelLine: {
-          show: true
+          show: true,
         },
         data: [
-          {value: 1048, name: '已完成配送单'},
-          {value: 350, name: '未完成配送单'},
-        ]
-      }
-    ]
-  }
+          { value: 1048, name: '已完成配送单' },
+          { value: 350, name: '未完成配送单' },
+        ],
+      },
+    ],
+  },
 })
 const chartRef = ref<HTMLElement | null>(null)
 const chartInstance = ref<echarts.EChartsType | null>(null)

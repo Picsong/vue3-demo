@@ -1,22 +1,22 @@
 <template>
   <router-view v-slot="{ Component }">
     <keep-alive :include="['GridPage']">
-      <component :is="Component"></component>
+      <component :is="Component" />
     </keep-alive>
   </router-view>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import { defineComponent } from 'vue'
 
 import Layout from './layout/index.vue'
 
 export default defineComponent({
-  name: "App",
-  components: {Layout},
+  name: 'App',
+  components: { Layout },
   mounted() {
     console.log('App加载')
-  }
+  },
 })
 
 </script>
@@ -43,7 +43,7 @@ html, body {
   linear-gradient(rgb(89, 134, 223), rgb(89, 134, 223)) left bottom/20px 2px no-repeat,
   linear-gradient(rgb(89, 134, 223), rgb(89, 134, 223)) left bottom/2px 20px no-repeat !important;
   /*
-  left top/之后的是size,
+  left top/之后的是size
   也可以单独写出来
   background-size: 2px 20px, 20px 2px, 20px 2px, 2px 20px, 2px 20px, 20px 2px, 20px 2px, 2px 20px;
   */

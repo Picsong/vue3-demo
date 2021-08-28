@@ -9,8 +9,18 @@
         <div class="head">标题</div>
       </slot>
       <div class="body">
-        <ul ref="ulRef" @transitionend="handleTransitionEnd" @mouseenter="handlerEnter" @mouseleave="handlerLeave">
-          <slot name="item" :item="item" v-for="item in renderData" :key="item.id">
+        <ul
+          ref="ulRef"
+          @transitionend="handleTransitionEnd"
+          @mouseenter="handlerEnter"
+          @mouseleave="handlerLeave"
+        >
+          <slot
+            v-for="item in renderData"
+            :key="item.id"
+            name="item"
+            :item="item"
+          >
             <li>{{ item.name }}</li>
           </slot>
         </ul>
@@ -20,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import {onMounted, computed, defineProps, withDefaults, reactive, ref} from "vue";
+import { onMounted, computed, defineProps, withDefaults, reactive, ref } from 'vue'
 interface IProps {
   title: string
   desc?: string
@@ -37,16 +47,16 @@ interface IList {
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-      title: '标题',
-      timeout: 5000,
-      list: () => {
-        let res: IList[] = []
-        for (let i = 0; i < 11; i++) {
-          res.push({name: `商品名称${i + 1}`, location: `中心库${i + 1}`, count: 5, amount: 99, id: i + 1})
-        }
-        return res
-      }
+  title: '标题',
+  timeout: 5000,
+  list: () => {
+    let res: IList[] = []
+    for (let i = 0; i < 11; i++) {
+      res.push({ name: `商品名称${i + 1}`, location: `中心库${i + 1}`, count: 5, amount: 99, id: i + 1 })
     }
+    return res
+  },
+},
 )
 const ulRef = ref<HTMLElement | null>(null)
 const timer = ref<number | null>(null)
@@ -65,12 +75,12 @@ const handleTransitionEnd = () => {
 }
 
 const handlerEnter = () => {
-  if (!scrollToOpen) return
+  if (!scrollToOpen.value) return
   if (timer.value) clearInterval(timer.value)
 }
 
 const handlerLeave = () => {
-  if (!scrollToOpen) return
+  if (!scrollToOpen.value) return
   timer.value = setInterval(() => {
     if (ulRef.value) {
       ulRef.value.style.transition = 'top 0.5s'

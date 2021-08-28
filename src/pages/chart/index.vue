@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import {useRoute, useRouter} from "vue-router";
+import { useRoute, useRouter } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
@@ -11,7 +11,7 @@ const route = useRoute()
 const link2grid = () => {
   console.log(route)
   router.push({
-    path: '/grid'
+    path: '/grid',
   })
 }
 </script>

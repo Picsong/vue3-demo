@@ -5,16 +5,16 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType, CSSProperties} from 'vue'
+import { defineComponent, PropType, CSSProperties } from 'vue'
 
 export default defineComponent({
-  name: "Grid",
+  name: 'Grid',
   props: {
     gridAttr: {
       type: Object as PropType<CSSProperties>,
-      default: () => ({})
+      default: () => ({}),
     },
-    isGridItem: Boolean
+    isGridItem: Boolean,
   },
 })
 </script>

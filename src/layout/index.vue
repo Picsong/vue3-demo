@@ -1,40 +1,50 @@
 <template>
   <div class="layout-wrapper">
-    <Box1 class="base-style--four-border"></Box1>
-    <Box1 class="base-style--four-border"></Box1>
-    <Box2 class="base-style--four-border"></Box2>
+    <Chart1 class="base-style--four-border" />
+    <Chart1 class="base-style--four-border" />
+    <Chart2 class="base-style--four-border" />
 
-    <Map1 class="base-style--four-border grid__item-4"></Map1>
+    <Map1 class="base-style--four-border grid__item-4" />
     <div class="base-style--four-border"></div>
 
-    <List1 class="base-style--four-border" title="近效期监控" desc="商品库存：456" :timeout="4000"/>
-    <List1 class="base-style--four-border" title="工作排行榜" :timeout="5000"/>
-    <List1 class="base-style--four-border grid__item-8" title="库存监控" desc="商品库存：123" :timeout="3000">
-      <template v-slot:head>
+    <List1
+      class="base-style--four-border"
+      title="近效期监控"
+      desc="商品库存：456"
+      :timeout="4000"
+    />
+    <List1 class="base-style--four-border" title="工作排行榜" :timeout="5000" />
+    <List1
+      class="base-style--four-border grid__item-8"
+      title="库存监控"
+      desc="商品库存：123"
+      :timeout="3000"
+    >
+      <template #head>
         <div class="list__head">Here might be a page title</div>
       </template>
-      <template v-slot:item="{item}">
+      <template #item="{item}">
         <li class="list__item">{{ item.name }}</li>
       </template>
     </List1>
-<!--    <div>9</div>-->
+    <!--    <div>9</div> -->
   </div>
 </template>
 
 <script>
-import Box1 from "../components/chart1.vue";
-import Box2 from "../components/chart2.vue";
-import Map1 from "../components/map1.vue";
-import List1 from "../components/list1.vue";
+import Chart1 from '../components/Chart1.vue'
+import Chart2 from '../components/Chart2.vue'
+import Map1 from '../components/Map1.vue'
+import List1 from '../components/List1.vue'
 
 export default {
-  name: "Layout",
+  name: 'Layout',
   components: {
-    Box1,
-    Box2,
+    Chart1,
+    Chart2,
     Map1,
-    List1
-  }
+    List1,
+  },
 }
 </script>
 
