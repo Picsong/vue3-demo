@@ -60,6 +60,7 @@ export default {
   grid-template-areas: 'q w e' 'a s d' 'z x .';
   grid-auto-flow: column;
   grid-gap: 20px;
+  background-color: #171C3C;
 
   & > div {
     color: #999;

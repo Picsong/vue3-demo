@@ -1,21 +1,26 @@
 <template>
-  <div @click="link2grid">123</div>
+  <ScreenAdapter :width="1920" :height="1080">
+    <div class="scale-wrap" @click="enterFullScreen" @dblclick="exitFullScreen">内容</div>
+  </ScreenAdapter>
 </template>
 
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router'
+import ScreenAdapter from '@/layout/components/ScreenAdapter.vue'
 
-const router = useRouter()
-const route = useRoute()
-
-const link2grid = () => {
-  console.log(route)
-  router.push({
-    path: '/grid',
-  })
+const enterFullScreen = () => {
+  document.documentElement.requestFullscreen()
 }
+
+const exitFullScreen = () => {
+  document.exitFullscreen()
+}
+
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.scale-wrap {
+  background-color: #171c3c;
+  color: #eee;
+  cursor: pointer;
+}
 </style>
