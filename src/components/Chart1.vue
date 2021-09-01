@@ -6,6 +6,8 @@
 <script lang="ts" setup>
 import { defineProps, onMounted, withDefaults, ref } from 'vue'
 import * as echarts from 'echarts'
+import useResize from '@/hooks/useResize'
+
 
 interface IProps {
   option: any
@@ -55,12 +57,19 @@ const props = withDefaults(defineProps<IProps>(), {
 const chartRef = ref<HTMLElement | null>(null)
 const chartInstance = ref<echarts.EChartsType | null>(null)
 
+useResize(()=>{
+  if(chartInstance.value){
+    chartInstance.value.resize()
+  }
+},500)
+
 onMounted(() => {
   if (chartRef.value) {
     chartInstance.value = echarts.init(chartRef.value)
     chartInstance.value.setOption(props.option)
   }
 })
+
 
 </script>
 

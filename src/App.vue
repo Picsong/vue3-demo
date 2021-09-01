@@ -1,6 +1,6 @@
 <template>
   <router-view v-slot="{ Component }">
-    <keep-alive :include="['GridPage']">
+    <keep-alive :include="['Map']">
       <component :is="Component" />
     </keep-alive>
   </router-view>
@@ -9,11 +9,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import Layout from './layout/index.vue'
-
 export default defineComponent({
   name: 'App',
-  components: { Layout },
   mounted() {
     console.log('App加载')
   },
@@ -30,7 +27,6 @@ html, body {
 #app {
   width: 100%;
   height: 100%;
-  background-color: pink;
 }
 
 .base-style--four-border {

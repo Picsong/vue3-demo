@@ -3,9 +3,10 @@
 </template>
 
 <script lang="ts" setup>
+import { defineProps, ref, onMounted } from 'vue'
 import * as echarts from 'echarts'
 import gzData from '../assets/cd-map.json'
-import { defineProps, ref, onMounted } from 'vue'
+import useResize from '@/hooks/useResize'
 
 const props = defineProps({
   option: {
@@ -44,7 +45,13 @@ const props = defineProps({
 })
 const cdMap = ref<HTMLElement | null>(null)
 const chartInstance = ref<echarts.EChartsType | null>(null)
-
+useResize(()=>{
+  if(chartInstance.value){
+    chartInstance.value.resize()
+    // setTimeout(()=>{
+    // },100)
+  }
+},500)
 onMounted(() => {
   echarts.registerMap('成都', gzData as any)
   if (cdMap.value) {
