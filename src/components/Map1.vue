@@ -45,17 +45,20 @@ const props = defineProps({
 })
 const cdMap = ref<HTMLElement | null>(null)
 const chartInstance = ref<echarts.EChartsType | null>(null)
-useResize(()=>{
-  if(chartInstance.value){
+useResize(() => {
+  if (chartInstance.value) {
     chartInstance.value.resize()
     // setTimeout(()=>{
     // },100)
   }
-},500)
+}, 500)
 onMounted(() => {
   echarts.registerMap('成都', gzData as any)
   if (cdMap.value) {
-    chartInstance.value = echarts.init(cdMap.value)
+    chartInstance.value = echarts.init(cdMap.value, null, {
+      renderer: 'svg',
+      devicePixelRatio: 2,
+    })
     chartInstance.value.setOption(props.option)
   }
 })

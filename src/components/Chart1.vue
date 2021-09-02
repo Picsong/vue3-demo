@@ -57,15 +57,18 @@ const props = withDefaults(defineProps<IProps>(), {
 const chartRef = ref<HTMLElement | null>(null)
 const chartInstance = ref<echarts.EChartsType | null>(null)
 
-useResize(()=>{
-  if(chartInstance.value){
+useResize(() => {
+  if (chartInstance.value) {
     chartInstance.value.resize()
   }
-},500)
+}, 500)
 
 onMounted(() => {
   if (chartRef.value) {
-    chartInstance.value = echarts.init(chartRef.value)
+    chartInstance.value = echarts.init(chartRef.value, null, {
+      renderer: 'svg',
+      devicePixelRatio: 2,
+    })
     chartInstance.value.setOption(props.option)
   }
 })
